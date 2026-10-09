@@ -18,10 +18,16 @@ const PUBLISHABLE_KEY =
   process.env.VITE_CLERK_PUBLISHABLE_KEY ||
   "pk_test_YXJyaXZpbmctZWFyd2lnLTkzMTkuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
+const basename =
+  window.location.hostname.includes("github.io") &&
+  window.location.pathname.startsWith("/minute-master")
+    ? "/minute-master"
+    : "";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-      <Router basename={process.env.PUBLIC_URL || ""}>
+      <Router basename={basename}>
         <AuthProivider>
           <ProductProvider>
             <App />

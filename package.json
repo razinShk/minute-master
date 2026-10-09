@@ -1,7 +1,6 @@
 {
   "name": "minute",
   "version": "0.1.0",
-  "homepage": "https://razinshk.github.io/minute-master",
   "private": true,
   "dependencies": {
     "@clerk/react": "^6.17.5",
