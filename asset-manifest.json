@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/minute-master/static/css/main.cc356f36.css",
+    "main.js": "/minute-master/static/js/main.50ddca0e.js",
+    "static/media/brand_craftsmanship.jpg": "/minute-master/static/media/brand_craftsmanship.5c3f533e81cbe287acc6.jpg",
+    "static/media/campaign_sports.jpg": "/minute-master/static/media/campaign_sports.0d6bba084d8104d13cd2.jpg",
+    "static/media/campaign_smart.jpg": "/minute-master/static/media/campaign_smart.268fe50da7142963bf09.jpg",
+    "static/media/campaign_luxury.jpg": "/minute-master/static/media/campaign_luxury.9045e3d78238c8a59492.jpg",
+    "static/media/hero_watch_campaign.jpg": "/minute-master/static/media/hero_watch_campaign.9730e68893aac8b82d7d.jpg",
+    "static/media/Luxury Watch.png": "/minute-master/static/media/Luxury Watch.b601deb6b86ed819c92a.png",
+    "static/media/Sports Watch.png": "/minute-master/static/media/Sports Watch.dcab4085638f094b4711.png",
+    "static/media/Smart Watch.png": "/minute-master/static/media/Smart Watch.0bb9205e8d1d67798924.png",
+    "static/media/minuteLogoLightMode.png": "/minute-master/static/media/minuteLogoLightMode.59782ea64198e0ee9e24.png",
+    "static/media/minuteLogoDarkMode.png": "/minute-master/static/media/minuteLogoDarkMode.2c418dad9dcc8cb6eca4.png",
+    "index.html": "/minute-master/index.html",
+    "main.cc356f36.css.map": "/minute-master/static/css/main.cc356f36.css.map",
+    "main.50ddca0e.js.map": "/minute-master/static/js/main.50ddca0e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc356f36.css",
+    "static/js/main.50ddca0e.js"
+  ]
+}
