@@ -1,0 +1,19 @@
+.signup-page-container {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.6rem;
+  min-height: calc(100vh - 8rem);
+}
+
+.signup-clerk-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 4rem auto;
+}
+
+@media (min-width: 768px) {
+  .signup-page-container {
+    margin-top: 5rem;
+  }
+}

@@ -1,0 +1,1184 @@
+/* =====================================================
+   MINUTE HOROLOGY - LUXURY LANDING PAGE STYLES
+   Inspired by Watches.com Campaign-Driven E-Commerce
+   ===================================================== */
+
+.home-page-container {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  color: #1a202c;
+  padding-top: 86px; /* Space for the fixed announcement & nav bar */
+}
+
+/* Common Section Typography & Header */
+.section-header {
+  max-width: 1300px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c5a059;
+  margin-bottom: 0.6rem;
+}
+
+.section-eyebrow.gold {
+  color: #dfc288;
+}
+
+.section-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0b0e14;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.section-title.white {
+  color: #ffffff;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.section-subtitle.light {
+  color: #94a3b8;
+}
+
+/* Buttons */
+.btn-primary-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #0b0e14;
+  color: #ffffff;
+  padding: 0.9rem 2.2rem;
+  border: 1px solid #c5a059;
+  border-radius: 4px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-primary-luxury:hover {
+  background-color: #c5a059;
+  color: #0b0e14;
+  border-color: #c5a059;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.25);
+}
+
+.btn-secondary-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 0.9rem 2.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-secondary-luxury:hover {
+  background-color: #ffffff;
+  color: #0b0e14;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-outline-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: transparent;
+  color: #0b0e14;
+  border: 1.5px solid #0b0e14;
+  padding: 0.85rem 2.2rem;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-luxury:hover {
+  background-color: #0b0e14;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.btn-gold-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #c5a059;
+  color: #0b0e14;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-gold-luxury:hover {
+  background-color: #dfc288;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+}
+
+/* =====================================================
+   1. HERO CAMPAIGN SECTION
+   ===================================================== */
+.hero-campaign-section {
+  position: relative;
+  min-height: calc(90vh - 86px);
+  display: flex;
+  align-items: center;
+  background-color: #0a0d13;
+  overflow: hidden;
+}
+
+.hero-media-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-media-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  filter: brightness(0.85);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 13, 19, 0.94) 0%,
+    rgba(10, 13, 19, 0.82) 42%,
+    rgba(10, 13, 19, 0.4) 75%,
+    rgba(10, 13, 19, 0.15) 100%
+  );
+}
+
+.hero-content-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem;
+  width: 100%;
+}
+
+.hero-tag-pill {
+  display: inline-block;
+  background-color: rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  color: #dfc288;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-headline {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  line-height: 1.12;
+  margin-bottom: 1.25rem;
+  max-width: 740px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subheadline {
+  font-size: 1.15rem;
+  color: #cbd5e1;
+  max-width: 580px;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-metrics-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(18, 22, 32, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.8rem;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-number {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #dfc288;
+}
+
+.metric-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.hero-metric-divider {
+  width: 1px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* =====================================================
+   2. FEATURED CAMPAIGNS (Watches.com Cards)
+   ===================================================== */
+.campaign-spotlight-section {
+  padding: 6rem 1.5rem;
+  background-color: #f8fafc;
+}
+
+.campaign-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.campaign-card {
+  position: relative;
+  background-color: #0b0e14;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.campaign-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+}
+
+.campaign-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.campaign-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.campaign-card:hover .campaign-card-media img {
+  transform: scale(1.06);
+}
+
+.campaign-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 14, 20, 0) 40%,
+    rgba(11, 14, 20, 0.85) 100%
+  );
+}
+
+.campaign-card-content {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #0b0e14;
+}
+
+.campaign-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #c5a059;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.campaign-card-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.campaign-card-desc {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.campaign-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #dfc288;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.campaign-card:hover .campaign-card-btn {
+  color: #ffffff;
+  gap: 0.8rem;
+}
+
+/* =====================================================
+   3. SHOP BY COLLECTION / CATEGORY
+   ===================================================== */
+.collections-section {
+  padding: 6rem 1.5rem;
+  background-color: #ffffff;
+}
+
+.collections-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.collection-pill-card {
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 1.25rem;
+}
+
+.collection-pill-card:hover {
+  background-color: #ffffff;
+  border-color: #c5a059;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+}
+
+.collection-img-box {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #edf2f7;
+}
+
+.collection-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.collection-pill-card:hover .collection-img-box img {
+  transform: scale(1.1);
+}
+
+.collection-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.collection-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.collection-name {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b0e14;
+}
+
+.collection-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  background-color: #e2e8f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+}
+
+.collection-desc {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.collection-link-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #c5a059;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s ease;
+}
+
+.collection-pill-card:hover .collection-link-text {
+  gap: 0.6rem;
+  color: #0b0e14;
+}
+
+/* =====================================================
+   4. TRENDING TIMEPIECES & NEW ARRIVALS
+   ===================================================== */
+.trending-showcase-section {
+  padding: 6rem 1.5rem;
+  background-color: #f8fafc;
+}
+
+.product-filter-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab-btn {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-tab-btn:hover {
+  border-color: #0b0e14;
+  color: #0b0e14;
+}
+
+.filter-tab-btn.active {
+  background-color: #0b0e14;
+  border-color: #0b0e14;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(11, 14, 20, 0.2);
+}
+
+.trending-products-grid {
+  max-width: 1300px;
+  margin: 3rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.catalog-cta-wrap {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+/* =====================================================
+   5. BEST SELLERS SPOTLIGHT
+   ===================================================== */
+.bestsellers-spotlight-section {
+  background-color: #0a0d13;
+  padding: 6rem 1.5rem;
+  color: #ffffff;
+}
+
+.bestsellers-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.bestsellers-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.bestsellers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.bestseller-card-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bestseller-card-wrapper .product-card {
+  background-color: #121620;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.bestseller-card-wrapper .product-card:hover {
+  border-color: #c5a059;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bestseller-card-wrapper .product-card img {
+  background-color: #0b0e14;
+}
+
+.bestseller-card-wrapper .product-card .product-name {
+  color: #f1f5f9;
+}
+
+.bestseller-card-wrapper .product-card .product-price {
+  color: #dfc288;
+}
+
+.bestseller-card-wrapper .product-card-top button {
+  color: #94a3b8;
+}
+
+/* =====================================================
+   6. BRAND STORY & ATELIER CRAFTSMANSHIP
+   ===================================================== */
+.brand-story-section {
+  padding: 7rem 1.5rem;
+  background-color: #ffffff;
+}
+
+.brand-story-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.brand-story-media {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.brand-story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.brand-story-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(11, 14, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  padding: 1rem 1.4rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #dfc288;
+}
+
+.badge-sub {
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.brand-story-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-story-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0b0e14;
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+
+.brand-story-lead {
+  font-size: 1.12rem;
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.brand-story-body {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.brand-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pillar-icon {
+  font-size: 1.25rem;
+  color: #c5a059;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.pillar-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #0b0e14;
+  margin-bottom: 2px;
+}
+
+.pillar-item p {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =====================================================
+   7. TRUST & CUSTOMER CONFIDENCE PILLARS
+   ===================================================== */
+.trust-pillars-section {
+  padding: 5rem 1.5rem;
+  background-color: #f8fafc;
+  border-top: 1px solid #edf2f7;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.trust-pillars-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.trust-pillar-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.trust-icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #c5a059;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.trust-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b0e14;
+  margin-bottom: 0.5rem;
+}
+
+.trust-desc {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   8. NEWSLETTER / COLLECTORS CIRCLE
+   ===================================================== */
+.newsletter-section {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #0b0e14 0%, #161b26 100%);
+  color: #ffffff;
+  text-align: center;
+}
+
+.newsletter-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.newsletter-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.newsletter-subtitle {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+}
+
+.highlight-credit {
+  color: #dfc288;
+  font-weight: 700;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 540px;
+  margin: 0 auto 1.25rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.95rem 1.4rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.25s ease;
+}
+
+.newsletter-input:focus {
+  border-color: #c5a059;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.newsletter-submit-btn {
+  background-color: #c5a059;
+  color: #0b0e14;
+  border: none;
+  padding: 0.95rem 1.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.newsletter-submit-btn:hover {
+  background-color: #dfc288;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
+}
+
+.newsletter-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid #c5a059;
+  color: #dfc288;
+  padding: 1rem 1.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.success-icon {
+  font-size: 1.4rem;
+  color: #dfc288;
+}
+
+.newsletter-disclaimer {
+  font-size: 0.75rem;
+  color: #64748b;
+  letter-spacing: 0.02em;
+}
+
+/* =====================================================
+   9. COMPREHENSIVE LUXURY E-COMMERCE FOOTER
+   ===================================================== */
+.luxury-footer {
+  background-color: #07090e;
+  color: #94a3b8;
+  padding: 5rem 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-top-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3.5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-col .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-logo-img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.footer-logo-text {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #ffffff;
+}
+
+.footer-bio {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #8b96a5;
+  margin-bottom: 0.8rem;
+  max-width: 360px;
+}
+
+.footer-creator-credit {
+  display: inline-block;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: #dfc288;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-creator-credit strong {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-social-links a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.footer-social-links a:hover {
+  background: #c5a059;
+  border-color: #c5a059;
+  color: #0b0e14;
+  transform: translateY(-2px);
+}
+
+.footer-col-title {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links-list li button,
+.footer-links-list li a,
+.footer-links-list li span {
+  background: transparent;
+  border: none;
+  color: #8b96a5;
+  font-size: 0.88rem;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.footer-links-list li button:hover,
+.footer-links-list li a:hover {
+  color: #dfc288;
+  padding-left: 4px;
+}
+
+.footer-bottom-bar {
+  max-width: 1300px;
+  margin: 2rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.footer-trust-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  color: #64748b;
+  letter-spacing: 0.08em;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ===================================================== */
+@media (max-width: 1100px) {
+  .hero-headline {
+    font-size: 3rem;
+  }
+  .campaign-grid,
+  .collections-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-page-container {
+    padding-top: 80px;
+  }
+  .hero-headline {
+    font-size: 2.4rem;
+  }
+  .brand-story-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .trust-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .campaign-grid,
+  .collections-container {
+    grid-template-columns: 1fr;
+  }
+  .hero-content-container {
+    padding: 3rem 1.25rem;
+  }
+  .hero-headline {
+    font-size: 2rem;
+  }
+  .hero-subheadline {
+    font-size: 1rem;
+  }
+  .hero-metrics-strip {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .hero-metric-divider {
+    display: none;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-primary-luxury,
+  .btn-secondary-luxury {
+    width: 100%;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .trust-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .bestsellers-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

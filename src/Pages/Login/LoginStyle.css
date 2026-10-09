@@ -1,0 +1,71 @@
+.login-page-container {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 3.6rem;
+  min-height: calc(100vh - 8rem);
+}
+
+.login-clerk-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto 4rem auto;
+  gap: 1.25rem;
+}
+
+.guest-login-card {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.guest-login-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0;
+  color: var(--text-secondary-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guest-login-divider::before,
+.guest-login-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--text-tertiary-color);
+}
+
+.guest-login-divider span {
+  padding: 0 0.75rem;
+}
+
+.guest-login-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px dashed var(--secondary-color);
+  background-color: white;
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guest-login-btn:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .login-page-container {
+    margin-top: 5rem;
+  }
+}

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>Luxury Watch — Scroll Animation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #000;
+      scroll-behavior: auto;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =====================================================
+       SCROLL VIDEO SECTION
+       ===================================================== */
+
+    .watch-scroll-section {
+      position: relative;
+      width: 100%;
+      height: 350vh;
+      background: #000;
+    }
+
+    .watch-sticky {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .watch-scroll-video {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      display: block;
+
+      pointer-events: none;
+      user-select: none;
+
+      /* Prevent browser video controls */
+      outline: none;
+    }
+
+    /* =====================================================
+       OPTIONAL OVERLAY
+       ===================================================== */
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.15),
+          transparent 25%,
+          transparent 75%,
+          rgba(0, 0, 0, 0.2)
+        );
+    }
+
+    /* =====================================================
+       LOADING SCREEN
+       ===================================================== */
+
+    .video-loader {
+      position: fixed;
+      inset: 0;
+
+      z-index: 100;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #000;
+
+      transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+    }
+
+    .video-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      text-align: center;
+    }
+
+    .loader-title {
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: 0.8;
+    }
+
+    .loader-line {
+      width: 120px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.25);
+      overflow: hidden;
+    }
+
+    .loader-progress {
+      width: 0%;
+      height: 100%;
+      background: #fff;
+      transition: width 0.15s ease;
+    }
+
+    /* =====================================================
+       NEXT SECTION
+       ===================================================== */
+
+    .next-section {
+      min-height: 100vh;
+      background: #050505;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 80px 20px;
+    }
+
+    .next-content {
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .next-content span {
+      display: block;
+
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+
+      opacity: 0.5;
+
+      margin-bottom: 20px;
+    }
+
+    .next-content h1 {
+      font-family: Georgia, serif;
+
+      font-size: clamp(40px, 7vw, 90px);
+      font-weight: 400;
+      line-height: 0.95;
+
+      margin-bottom: 25px;
+    }
+
+    .next-content p {
+      color: #999;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 768px) {
+
+      .watch-scroll-section {
+        height: 300vh;
+      }
+
+      .watch-scroll-video {
+        object-fit: cover;
+      }
+
+    }
+
+    /* =====================================================
+       REDUCED MOTION
+       ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .watch-scroll-section {
+        height: 100vh;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       LOADER
+       ===================================================== -->
+
+  <div class="video-loader" id="videoLoader">
+
+    <div class="loader-content">
+
+      <div class="loader-title">
+        Loading
+      </div>
+
+      <div class="loader-line">
+        <div
+          class="loader-progress"
+          id="loaderProgress"
+        ></div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCROLL-CONTROLLED VIDEO
+       ===================================================== -->
+
+  <section
+    class="watch-scroll-section"
+    id="watchAnimation"
+  >
+
+    <div class="watch-sticky">
+
+      <video
+        id="watchVideo"
+        class="watch-scroll-video"
+        src="Cinematic Watch Product Video Commercial Example _ Rolex Timex Omega Samsung Apple Jewelry Amazon Ad.mp4"
+        muted
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="
+          nodownload
+          nofullscreen
+          noremoteplayback
+        "
+      >
+        <source src="Cinematic Watch Product Video Commercial Example _ Rolex Timex Omega Samsung Apple Jewelry Amazon Ad.mp4" type="video/mp4" />
+        <source src="watch-animation.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       NEXT WEBSITE SECTION
+       ===================================================== -->
+
+  <section class="next-section">
+
+    <div class="next-content">
+
+      <span>
+        Timeless Design
+      </span>
+
+      <h1>
+        Crafted<br>
+        To Last.
+      </h1>
+
+      <p>
+        Precision, craftsmanship and timeless design
+        come together in every detail.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <script>
+    (() => {
+
+      /* ===================================================
+         ELEMENTS
+         =================================================== */
+
+      const section =
+        document.getElementById("watchAnimation");
+
+      const video =
+        document.getElementById("watchVideo");
+
+      const loader =
+        document.getElementById("videoLoader");
+
+      const loaderProgress =
+        document.getElementById("loaderProgress");
+
+
+      /* ===================================================
+         VARIABLES
+         =================================================== */
+
+      /* ===================================================
+         TIMING CONFIGURATION (SECONDS)
+         =================================================== */
+
+      // Start at 1s to skip the initial black frames, end at 14s to omit the last fade-out second
+      const START_TIME = 1.0;
+      const END_TIME = 14.0;
+
+      let duration = 0;
+
+      let videoReady = false;
+
+      let targetTime = START_TIME;
+
+      let currentTime = START_TIME;
+
+      let animationFrame = null;
+
+      let scrollTicking = false;
+
+
+      /* ===================================================
+         PREVENT AUTOPLAY
+         =================================================== */
+
+      video.pause();
+
+      video.addEventListener("play", () => {
+        video.pause();
+      });
+
+
+      /* ===================================================
+         VIDEO METADATA
+         =================================================== */
+
+      function dismissLoader() {
+        if (loader && !loader.classList.contains("hidden")) {
+          loaderProgress.style.width = "100%";
+          setTimeout(() => {
+            loader.classList.add("hidden");
+          }, 200);
+        }
+      }
+
+      function initializeVideo() {
+        if (
+          !Number.isFinite(video.duration) ||
+          video.duration <= 0
+        ) {
+          return;
+        }
+
+        duration = video.duration;
+        videoReady = true;
+        video.pause();
+
+        const progress = getScrollProgress();
+        const effectiveEnd = Math.min(END_TIME, duration);
+        targetTime = START_TIME + progress * (effectiveEnd - START_TIME);
+        currentTime = targetTime;
+        video.currentTime = targetTime;
+
+        startAnimation();
+        dismissLoader();
+      }
+
+      video.addEventListener(
+        "loadedmetadata",
+        initializeVideo
+      );
+
+      video.addEventListener("loadeddata", () => {
+        if (video.readyState >= 1) {
+          initializeVideo();
+        }
+        dismissLoader();
+      });
+
+      video.addEventListener("canplay", dismissLoader);
+      video.addEventListener("canplaythrough", dismissLoader);
+
+      video.addEventListener("error", (e) => {
+        console.warn("Video load error:", e);
+        dismissLoader();
+      });
+
+      if (video.readyState >= 1) {
+        initializeVideo();
+      }
+      if (video.readyState >= 2) {
+        dismissLoader();
+      }
+
+      // Fallback timer to ensure the loader never stays indefinitely stuck
+      setTimeout(dismissLoader, 1500);
+
+      /* ===================================================
+         LOADING PROGRESS
+         =================================================== */
+
+      video.addEventListener("progress", () => {
+        if (!video.buffered.length || duration <= 0) {
+          return;
+        }
+
+        const bufferedEnd =
+          video.buffered.end(
+            video.buffered.length - 1
+          );
+
+        const progress =
+          (bufferedEnd / duration) * 100;
+
+        loaderProgress.style.width =
+          Math.min(progress, 100) + "%";
+      });
+
+
+      /* ===================================================
+         GET SCROLL PROGRESS
+         =================================================== */
+
+      function getScrollProgress() {
+
+        const rect =
+          section.getBoundingClientRect();
+
+        const sectionHeight =
+          section.offsetHeight;
+
+        const viewportHeight =
+          window.innerHeight;
+
+        const scrollDistance =
+          sectionHeight - viewportHeight;
+
+        if (scrollDistance <= 0) {
+          return 0;
+        }
+
+        /*
+          When the top of the section reaches
+          the top of the viewport:
+
+          progress = 0
+
+          When the bottom of the section reaches
+          the bottom of the viewport:
+
+          progress = 1
+        */
+
+        const distanceScrolled =
+          -rect.top;
+
+        let progress =
+          distanceScrolled / scrollDistance;
+
+        progress =
+          Math.max(
+            0,
+            Math.min(1, progress)
+          );
+
+        return progress;
+      }
+
+
+      /* ===================================================
+         UPDATE TARGET VIDEO TIME
+         =================================================== */
+
+      function updateVideoTarget() {
+
+        if (!videoReady || duration <= 0) {
+          return;
+        }
+
+        const progress =
+          getScrollProgress();
+
+        const effectiveEnd =
+          Math.min(END_TIME, duration);
+
+        targetTime =
+          START_TIME + progress * (effectiveEnd - START_TIME);
+
+        startAnimation();
+
+      }
+
+
+      /* ===================================================
+         SMOOTH VIDEO FRAME UPDATE
+         =================================================== */
+
+      function animateVideo() {
+
+        const difference =
+          targetTime - currentTime;
+
+
+        /*
+          Smooth interpolation.
+
+          Higher number = faster response.
+
+          0.18 gives a smooth cinematic feel.
+        */
+
+        currentTime +=
+          difference * 0.18;
+
+
+        if (
+          Math.abs(difference) < 0.003
+        ) {
+
+          currentTime =
+            targetTime;
+
+        }
+
+
+        /*
+          Only update video.currentTime
+          when necessary.
+        */
+
+        if (
+          Math.abs(
+            video.currentTime -
+            currentTime
+          ) > 0.001
+        ) {
+
+          try {
+
+            video.currentTime =
+              currentTime;
+
+          } catch (error) {
+
+            // Ignore seeking errors while
+            // the browser is loading frames.
+
+          }
+
+        }
+
+
+        /*
+          Continue animation until the target
+          frame has been reached.
+        */
+
+        if (
+          Math.abs(
+            targetTime -
+            currentTime
+          ) > 0.003
+        ) {
+
+          animationFrame =
+            requestAnimationFrame(
+              animateVideo
+            );
+
+        } else {
+
+          animationFrame = null;
+
+        }
+
+      }
+
+
+      /* ===================================================
+         START ANIMATION LOOP
+         =================================================== */
+
+      function startAnimation() {
+
+        if (animationFrame !== null) {
+          return;
+        }
+
+        animationFrame =
+          requestAnimationFrame(
+            animateVideo
+          );
+
+      }
+
+
+      /* ===================================================
+         SCROLL HANDLER
+         =================================================== */
+
+      function handleScroll() {
+
+        if (scrollTicking) {
+          return;
+        }
+
+        scrollTicking = true;
+
+
+        requestAnimationFrame(() => {
+
+          updateVideoTarget();
+
+          scrollTicking = false;
+
+        });
+
+      }
+
+
+      window.addEventListener(
+        "scroll",
+        handleScroll,
+        {
+          passive: true
+        }
+      );
+
+
+      /* ===================================================
+         RESIZE HANDLER
+         =================================================== */
+
+      let resizeTimeout;
+
+
+      window.addEventListener(
+        "resize",
+        () => {
+
+          clearTimeout(resizeTimeout);
+
+          resizeTimeout =
+            setTimeout(() => {
+
+              updateVideoTarget();
+
+            }, 100);
+
+        },
+        {
+          passive: true
+        }
+      );
+
+
+      /* ===================================================
+         TAB VISIBILITY
+         =================================================== */
+
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+
+          if (document.hidden) {
+
+            video.pause();
+
+          }
+
+        }
+      );
+
+
+      /* ===================================================
+         INITIAL POSITION
+         =================================================== */
+
+      window.addEventListener(
+        "load",
+        () => {
+          updateVideoTarget();
+        }
+      );
+
+
+      /* ===================================================
+         PREVENT CONTROLS / CLICKING
+         =================================================== */
+
+      video.addEventListener(
+        "click",
+        (event) => {
+
+          event.preventDefault();
+
+        }
+      );
+
+
+      /* ===================================================
+         INITIAL UPDATE
+         =================================================== */
+
+      updateVideoTarget();
+
+    })();
+  </script>
+
+</body>
+</html>

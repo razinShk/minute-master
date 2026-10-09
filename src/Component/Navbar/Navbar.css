@@ -1,0 +1,373 @@
+/* =====================================================
+   LUXURY WATCH NAVBAR & ANNOUNCEMENT BAR
+   Inspired by Watches.com Editorial Aesthetics
+   ===================================================== */
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+/* 1. Announcement Bar */
+.announcement-bar {
+  background-color: #0b0e14;
+  color: #e2e8f0;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.announcement-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.announcement-inner span {
+  display: inline-block;
+}
+
+.announcement-bullet {
+  color: #c5a059;
+  font-size: 0.8rem;
+}
+
+/* 2. Main Navigation Bar */
+.navbar-main {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-name {
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #0b0e14;
+  line-height: 1;
+}
+
+.logo-tagline {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: #8b96a5;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Desktop Navigation Links */
+.nav-links-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-collection-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #2d3748;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-collection-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #c5a059;
+  transition: width 0.25s ease;
+}
+
+.nav-collection-btn:hover {
+  color: #0b0e14;
+}
+
+.nav-collection-btn:hover::after {
+  width: 100%;
+}
+
+.nav-collection-btn.highlight {
+  color: #c5a059;
+}
+
+/* Nav Action Buttons (Right) */
+.nav-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: #1a202c;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #f7fafc;
+  color: #c5a059;
+}
+
+.nav-btn-icon {
+  font-size: 1.35rem;
+}
+
+.nav-btn-qty {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background-color: #0b0e14;
+  color: #ffffff;
+  border: 1px solid #c5a059;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.nav-clerk-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.nav-clerk-userbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  color: #1a202c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .nav-links-desktop {
+    display: flex;
+  }
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+/* Search Dropdown/Overlay */
+.search-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid #edf2f7;
+  border-bottom: 1px solid #e2e8f0;
+  z-index: 10;
+}
+
+.search-container.search-visible {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 0.7rem 1rem 0.7rem 2.8rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+  background-color: #f8fafc;
+  color: #1a202c;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.search-container input:focus {
+  border-color: #0b0e14;
+  background-color: #ffffff;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  left: 2.2rem;
+  font-size: 1.3rem;
+  color: #718096;
+  pointer-events: none;
+}
+
+.search-container .close-icon {
+  font-size: 1.2rem;
+  color: #4a5568;
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 2px solid #0b0e14;
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  animation: slideDownNav 0.25s ease forwards;
+}
+
+@keyframes slideDownNav {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-drawer-btn {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #1a202c;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  text-decoration: none;
+  display: block;
+}
+
+.mobile-drawer-btn:hover {
+  color: #c5a059;
+  padding-left: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.mobile-drawer-btn.highlight {
+  color: #c5a059;
+  font-weight: 700;
+}
+
+.mobile-drawer-footer {
+  padding-top: 0.5rem;
+}
+
+.mobile-guarantee-note {
+  font-size: 0.75rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .announcement-inner {
+    font-size: 0.65rem;
+  }
+  .announcement-bullet,
+  .announcement-inner span:nth-child(n+3) {
+    display: none;
+  }
+  .navbar-main {
+    padding: 0.5rem 1rem;
+  }
+  .logo-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+  .logo-name {
+    font-size: 1.15rem;
+  }
+}

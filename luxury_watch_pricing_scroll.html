@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Luxury Watch — Pricing</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#050505;scroll-behavior:auto}
+body{background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+button{font:inherit}
+
+:root{
+  --gold:#c9a86a;
+  --gold-light:#e5c98e;
+  --muted:#9b9b9b;
+  --line:rgba(255,255,255,.12);
+  --card:#0d0d0d;
+}
+
+/* ---------- HERO / SCROLL VIDEO ---------- */
+.watch-scroll-section{
+  position:relative;width:100%;height:350vh;background:#000;
+}
+.watch-sticky{
+  position:sticky;top:0;width:100%;height:100vh;height:100svh;
+  overflow:hidden;background:#000;
+}
+.watch-scroll-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;
+  pointer-events:none;user-select:none;outline:none;
+}
+.video-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(0,0,0,.18),transparent 25%,transparent 72%,rgba(0,0,0,.32));
+}
+.video-label{
+  position:absolute;left:clamp(24px,6vw,90px);bottom:clamp(28px,7vh,70px);
+  z-index:2;pointer-events:none;
+}
+.video-label span{
+  display:block;font-size:10px;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);margin-bottom:10px;
+}
+.video-label h1{
+  font-family:Georgia,serif;font-size:clamp(38px,6vw,86px);
+  font-weight:400;line-height:.95;
+}
+
+/* ---------- LOADER ---------- */
+.video-loader{
+  position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+  background:#000;transition:opacity .5s ease,visibility .5s ease;
+}
+.video-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-content{text-align:center}
+.loader-title{font-size:11px;letter-spacing:.35em;text-transform:uppercase;margin-bottom:18px;opacity:.8}
+.loader-line{width:120px;height:1px;background:rgba(255,255,255,.25);overflow:hidden}
+.loader-progress{width:0;height:100%;background:#fff;transition:width .15s ease}
+
+/* ---------- INTRO ---------- */
+.intro{
+  min-height:90vh;display:flex;align-items:center;justify-content:center;
+  padding:100px 24px;background:#050505;text-align:center;
+}
+.intro-inner{max-width:850px}
+.eyebrow{
+  color:var(--gold);font-size:10px;letter-spacing:.38em;text-transform:uppercase;margin-bottom:22px;
+}
+.intro h2{
+  font-family:Georgia,serif;font-weight:400;font-size:clamp(45px,7vw,92px);line-height:.96;margin-bottom:28px;
+}
+.intro p{max-width:650px;margin:auto;color:#999;line-height:1.8;font-size:16px}
+
+/* ---------- PRICING ---------- */
+.pricing-section{
+  padding:120px 5vw 140px;background:#070707;
+}
+.section-heading{text-align:center;max-width:760px;margin:0 auto 70px}
+.section-heading .eyebrow{margin-bottom:16px}
+.section-heading h2{
+  font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,6vw,76px);line-height:1;
+}
+.section-heading p{color:#888;line-height:1.7;margin-top:22px}
+
+.pricing-grid{
+  max-width:1250px;margin:auto;display:grid;
+  grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;
+}
+.price-card{
+  position:relative;background:linear-gradient(180deg,#111,#0a0a0a);
+  border:1px solid var(--line);padding:38px 30px 34px;
+  display:flex;flex-direction:column;min-height:650px;
+  transition:transform .35s ease,border-color .35s ease;
+}
+.price-card:hover{transform:translateY(-7px);border-color:rgba(201,168,106,.5)}
+.price-card.featured{
+  border-color:var(--gold);
+  background:linear-gradient(180deg,#15130e,#0a0a0a);
+}
+.badge{
+  position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
+  background:var(--gold);color:#080808;padding:8px 18px;
+  font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;
+}
+.card-tier{
+  color:#aaa;font-size:10px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:22px;
+}
+.price{
+  font-family:Georgia,serif;font-size:58px;font-weight:400;line-height:1;margin-bottom:10px;
+}
+.price small{font-family:Arial,sans-serif;font-size:13px;color:#777;margin-left:5px}
+.card-desc{color:#888;font-size:13px;line-height:1.65;min-height:64px;margin-bottom:28px}
+.card-line{height:1px;background:var(--line);margin-bottom:26px}
+.features{list-style:none;display:grid;gap:13px;margin-bottom:32px}
+.features li{font-size:13px;color:#d2d2d2;line-height:1.4;display:flex;gap:10px}
+.features li::before{content:"✓";color:var(--gold);font-weight:bold}
+.features li.disabled{color:#555}
+.features li.disabled::before{content:"—";color:#444}
+.card-btn{
+  margin-top:auto;width:100%;padding:15px 18px;border:1px solid #555;
+  background:transparent;color:#fff;cursor:pointer;text-transform:uppercase;
+  letter-spacing:.18em;font-size:10px;transition:.25s;
+}
+.featured .card-btn{background:var(--gold);border-color:var(--gold);color:#080808}
+.card-btn:hover{border-color:var(--gold);color:var(--gold)}
+.featured .card-btn:hover{background:var(--gold-light);color:#080808}
+
+/* ---------- FEATURE COMPARISON ---------- */
+.comparison{
+  padding:120px 5vw;background:#050505;
+}
+.comparison-inner{max-width:1200px;margin:auto}
+.comparison-head{text-align:center;margin-bottom:55px}
+.comparison-head h2{font-family:Georgia,serif;font-size:clamp(38px,5vw,65px);font-weight:400}
+.comparison-table{border:1px solid var(--line);overflow:hidden}
+.compare-row{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  border-bottom:1px solid var(--line);
+}
+.compare-row:last-child{border-bottom:0}
+.compare-row>div{padding:18px 20px;font-size:12px;border-right:1px solid var(--line)}
+.compare-row>div:last-child{border-right:0}
+.compare-row.header{background:#111}
+.compare-row.header>div{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#aaa}
+.compare-row:not(.header)>div:not(:first-child){text-align:center}
+.yes{color:var(--gold)}
+.no{color:#555}
+
+/* ---------- PROCESS ---------- */
+.process{
+  padding:120px 5vw;background:#090909;
+}
+.process-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.process-item{text-align:center}
+.process-number{
+  width:45px;height:45px;border:1px solid var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+  color:var(--gold);font-family:Georgia,serif;
+}
+.process-item h3{font-family:Georgia,serif;font-size:24px;font-weight:400;margin-bottom:12px}
+.process-item p{font-size:13px;color:#888;line-height:1.7}
+
+/* ---------- CTA ---------- */
+.cta{
+  min-height:70vh;padding:100px 24px;display:flex;align-items:center;justify-content:center;
+  text-align:center;background:#050505;
+}
+.cta-inner{max-width:800px}
+.cta h2{font-family:Georgia,serif;font-size:clamp(45px,7vw,90px);font-weight:400;line-height:.98;margin-bottom:25px}
+.cta p{color:#888;line-height:1.7;max-width:580px;margin:0 auto 35px}
+.cta-btn{
+  display:inline-block;padding:16px 32px;background:var(--gold);color:#080808;
+  text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:bold;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  border-top:1px solid var(--line);padding:35px 5vw;display:flex;
+  justify-content:space-between;gap:20px;color:#666;font-size:11px;
+}
+footer strong{color:#aaa;font-weight:400;letter-spacing:.12em;text-transform:uppercase}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .pricing-grid{grid-template-columns:1fr;max-width:600px}
+  .price-card{min-height:auto}
+  .process-grid{grid-template-columns:1fr;max-width:500px}
+  .compare-row{grid-template-columns:1.7fr repeat(3,1fr)}
+  .compare-row>div{padding:14px 8px;font-size:10px}
+}
+@media(max-width:600px){
+  .watch-scroll-section{height:300vh}
+  .watch-scroll-video{object-fit:cover}
+  .video-label{left:20px;bottom:28px}
+  .intro{min-height:75vh}
+  .pricing-section,.comparison,.process{padding-top:85px;padding-bottom:90px}
+  .price-card{padding:32px 24px}
+  .compare-row>div:first-child{font-size:10px}
+  footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  .watch-scroll-section{height:100vh}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div class="video-loader" id="videoLoader">
+  <div class="loader-content">
+    <div class="loader-title">Loading</div>
+    <div class="loader-line"><div class="loader-progress" id="loaderProgress"></div></div>
+  </div>
+</div>
+
+<!-- SCROLL-CONTROLLED WATCH VIDEO -->
+<section class="watch-scroll-section" id="watchAnimation">
+  <div class="watch-sticky">
+    <video
+      id="watchVideo"
+      class="watch-scroll-video"
+      src="Cinematic Watch Product Video Commercial Example _ Rolex Timex Omega Samsung Apple Jewelry Amazon Ad.mp4"
+      muted
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      controlslist="nodownload nofullscreen noremoteplayback">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-label">
+      <span>Precision · Craftsmanship · Time</span>
+      <h1>Wear<br>Timeless.</h1>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="eyebrow">The Collection</div>
+    <h2>Time, Reimagined.</h2>
+    <p>
+      Discover a curated collection of watches designed for people who
+      appreciate precision, refined materials and timeless character.
+      Choose the experience that fits your collection.
+    </p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-heading">
+    <div class="eyebrow">Choose Your Collection</div>
+    <h2>Find Your Watch.</h2>
+    <p>Every collection is built around quality, detail and a timeless design language.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <article class="price-card">
+      <div class="card-tier">Essential</div>
+      <div class="price">₹15,000<small>/ watch</small></div>
+      <div class="card-desc">A refined everyday timepiece for those who value clean design and reliable style.</div>
+      <div class="card-line"></div>
+      <ul class="features">
+        <li>Premium watch design</li>
+        <li>Multiple dial options</li>
+        <li>Quality strap selection</li>
+        <li>Secure packaging</li>
+        <li>1-year warranty</li>
+        <li class="disabled">Premium personalization</li>
+        <li class="disabled">Priority support</li>
+      </ul>
+      <button class="card-btn" onclick="selectPlan('Essential')">Choose Essential</button>
+    </article>
+
+    <article class="price-card featured">
+      <div class="badge">Most Popular</div>
+      <div class="card-tier">Signature</div>
+      <div class="price">₹25,000<small>/ watch</small></div>
+      <div class="card-desc">Our signature collection with elevated materials, distinctive detailing and a more premium finish.</div>
+      <div class="card-line"></div>
+      <ul class="features">
+        <li>Premium watch design</li>
+        <li>Multiple dial options</li>
+        <li>Premium strap selection</li>
+        <li>Luxury presentation box</li>
+        <li>2-year warranty</li>
+        <li>Personalization options</li>
+        <li>Priority customer support</li>
+      </ul>
+      <button class="card-btn" onclick="selectPlan('Signature')">Choose Signature</button>
+    </article>
+
+    <article class="price-card">
+      <div class="card-tier">Prestige</div>
+      <div class="price">₹30,000<small>/ watch</small></div>
+      <div class="card-desc">The complete luxury experience for customers who want the finest finish and highest level of service.</div>
+      <div class="card-line"></div>
+      <ul class="features">
+        <li>Premium luxury watch design</li>
+        <li>Exclusive dial options</li>
+        <li>Premium strap collection</li>
+        <li>Luxury presentation box</li>
+        <li>Extended 3-year warranty</li>
+        <li>Premium personalization</li>
+        <li>VIP priority support</li>
+      </ul>
+      <button class="card-btn" onclick="selectPlan('Prestige')">Choose Prestige</button>
+    </article>
+
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <div class="comparison-head">
+      <div class="eyebrow">Compare</div>
+      <h2>Every Detail Matters.</h2>
+    </div>
+
+    <div class="comparison-table">
+      <div class="compare-row header">
+        <div>Feature</div>
+        <div>Essential</div>
+        <div>Signature</div>
+        <div>Prestige</div>
+      </div>
+
+      <div class="compare-row">
+        <div>Premium design</div>
+        <div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div>
+      </div>
+      <div class="compare-row">
+        <div>Dial options</div>
+        <div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div>
+      </div>
+      <div class="compare-row">
+        <div>Premium strap</div>
+        <div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div>
+      </div>
+      <div class="compare-row">
+        <div>Luxury presentation box</div>
+        <div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div>
+      </div>
+      <div class="compare-row">
+        <div>Personalization</div>
+        <div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div>
+      </div>
+      <div class="compare-row">
+        <div>Warranty</div>
+        <div>1 year</div><div>2 years</div><div>3 years</div>
+      </div>
+      <div class="compare-row">
+        <div>Priority support</div>
+        <div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-heading">
+    <div class="eyebrow">A Simple Experience</div>
+    <h2>From Selection To Wrist.</h2>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-item">
+      <div class="process-number">01</div>
+      <h3>Choose</h3>
+      <p>Explore the collection and select the watch that matches your style.</p>
+    </div>
+    <div class="process-item">
+      <div class="process-number">02</div>
+      <h3>Customize</h3>
+      <p>Select your preferred dial, strap and available personalization options.</p>
+    </div>
+    <div class="process-item">
+      <div class="process-number">03</div>
+      <h3>Receive</h3>
+      <p>Your watch arrives carefully packaged and ready to become part of your story.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow">Your Time Starts Here</div>
+    <h2>Choose Something<br>Worth Wearing.</h2>
+    <p>
+      Find the piece that fits your style and make every second count.
+    </p>
+    <a class="cta-btn" href="#pricing">Explore Collection</a>
+  </div>
+</section>
+
+<footer>
+  <strong>Luxury Watch Co.</strong>
+  <span>© 2026 All rights reserved.</span>
+</footer>
+
+<script>
+(() => {
+  const section = document.getElementById("watchAnimation");
+  const video = document.getElementById("watchVideo");
+  const loader = document.getElementById("videoLoader");
+  const loaderProgress = document.getElementById("loaderProgress");
+
+  const START_TIME = 1.0;
+  const END_TIME = 14.0;
+
+  let duration = 0;
+  let videoReady = false;
+  let targetTime = START_TIME;
+  let currentTime = START_TIME;
+  let animationFrame = null;
+  let scrollTicking = false;
+
+  video.pause();
+
+  video.addEventListener("play", () => video.pause());
+
+  function dismissLoader() {
+    if (loader && !loader.classList.contains("hidden")) {
+      loaderProgress.style.width = "100%";
+      setTimeout(() => loader.classList.add("hidden"), 200);
+    }
+  }
+
+  function initializeVideo() {
+    if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+
+    duration = video.duration;
+    videoReady = true;
+    video.pause();
+
+    const progress = getScrollProgress();
+    const effectiveEnd = Math.min(END_TIME, duration);
+
+    targetTime = START_TIME + progress * (effectiveEnd - START_TIME);
+    currentTime = targetTime;
+    video.currentTime = targetTime;
+
+    startAnimation();
+    dismissLoader();
+  }
+
+  video.addEventListener("loadedmetadata", initializeVideo);
+  video.addEventListener("loadeddata", () => {
+    if (video.readyState >= 1) initializeVideo();
+    dismissLoader();
+  });
+  video.addEventListener("canplay", dismissLoader);
+  video.addEventListener("canplaythrough", dismissLoader);
+  video.addEventListener("error", dismissLoader);
+
+  if (video.readyState >= 1) initializeVideo();
+  if (video.readyState >= 2) dismissLoader();
+  setTimeout(dismissLoader, 1500);
+
+  video.addEventListener("progress", () => {
+    if (!video.buffered.length || duration <= 0) return;
+    const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+    loaderProgress.style.width = Math.min((bufferedEnd / duration) * 100, 100) + "%";
+  });
+
+  function getScrollProgress() {
+    const rect = section.getBoundingClientRect();
+    const scrollDistance = section.offsetHeight - window.innerHeight;
+    if (scrollDistance <= 0) return 0;
+
+    const distanceScrolled = -rect.top;
+    return Math.max(0, Math.min(1, distanceScrolled / scrollDistance));
+  }
+
+  function updateVideoTarget() {
+    if (!videoReady || duration <= 0) return;
+
+    const progress = getScrollProgress();
+    const effectiveEnd = Math.min(END_TIME, duration);
+
+    targetTime = START_TIME + progress * (effectiveEnd - START_TIME);
+    startAnimation();
+  }
+
+  function animateVideo() {
+    const difference = targetTime - currentTime;
+    currentTime += difference * 0.18;
+
+    if (Math.abs(difference) < 0.003) currentTime = targetTime;
+
+    if (Math.abs(video.currentTime - currentTime) > 0.001) {
+      try {
+        video.currentTime = currentTime;
+      } catch (error) {}
+    }
+
+    if (Math.abs(targetTime - currentTime) > 0.003) {
+      animationFrame = requestAnimationFrame(animateVideo);
+    } else {
+      animationFrame = null;
+    }
+  }
+
+  function startAnimation() {
+    if (animationFrame !== null) return;
+    animationFrame = requestAnimationFrame(animateVideo);
+  }
+
+  function handleScroll() {
+    if (scrollTicking) return;
+    scrollTicking = true;
+
+    requestAnimationFrame(() => {
+      updateVideoTarget();
+      scrollTicking = false;
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateVideoTarget, 100);
+  }, { passive: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) video.pause();
+  });
+
+  window.addEventListener("load", updateVideoTarget);
+  updateVideoTarget();
+})();
+
+function selectPlan(plan) {
+  alert(
+    "You selected the " +
+    plan +
+    " collection. Connect this button to your product page or checkout."
+  );
+}
+</script>
+
+</body>
+</html>
